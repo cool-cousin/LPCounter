@@ -10,8 +10,8 @@
 		AE2E17561D50B18700E9F642 /* LPCounter.h in Headers */ = {isa = PBXBuildFile; fileRef = AE2E17551D50B18700E9F642 /* LPCounter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AE2E175D1D50B18700E9F642 /* LPCounter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE2E17521D50B18700E9F642 /* LPCounter.framework */; };
 		AE2E17621D50B18700E9F642 /* LPCounterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2E17611D50B18700E9F642 /* LPCounterTests.swift */; };
-		AE2E176F1D50CD8700E9F642 /* LPCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2E176D1D50CD8700E9F642 /* LPCounter.swift */; };
-		AE2E17701D50CD8700E9F642 /* LPTopCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2E176E1D50CD8700E9F642 /* LPTopCounter.swift */; };
+		AE2E17731D50CF9100E9F642 /* LPCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2E17711D50CF9100E9F642 /* LPCounter.swift */; };
+		AE2E17741D50CF9100E9F642 /* LPTopCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2E17721D50CF9100E9F642 /* LPTopCounter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,8 +31,8 @@
 		AE2E175C1D50B18700E9F642 /* LPCounterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LPCounterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE2E17611D50B18700E9F642 /* LPCounterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPCounterTests.swift; sourceTree = "<group>"; };
 		AE2E17631D50B18700E9F642 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AE2E176D1D50CD8700E9F642 /* LPCounter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LPCounter.swift; sourceTree = "<group>"; };
-		AE2E176E1D50CD8700E9F642 /* LPTopCounter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LPTopCounter.swift; sourceTree = "<group>"; };
+		AE2E17711D50CF9100E9F642 /* LPCounter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LPCounter.swift; sourceTree = "<group>"; };
+		AE2E17721D50CF9100E9F642 /* LPTopCounter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LPTopCounter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,7 +75,8 @@
 		AE2E17541D50B18700E9F642 /* LPCounter */ = {
 			isa = PBXGroup;
 			children = (
-				AE2E176C1D50CD8700E9F642 /* Counter */,
+				AE2E17711D50CF9100E9F642 /* LPCounter.swift */,
+				AE2E17721D50CF9100E9F642 /* LPTopCounter.swift */,
 				AE2E17551D50B18700E9F642 /* LPCounter.h */,
 				AE2E17571D50B18700E9F642 /* Info.plist */,
 			);
@@ -89,15 +90,6 @@
 				AE2E17631D50B18700E9F642 /* Info.plist */,
 			);
 			path = LPCounterTests;
-			sourceTree = "<group>";
-		};
-		AE2E176C1D50CD8700E9F642 /* Counter */ = {
-			isa = PBXGroup;
-			children = (
-				AE2E176D1D50CD8700E9F642 /* LPCounter.swift */,
-				AE2E176E1D50CD8700E9F642 /* LPTopCounter.swift */,
-			);
-			path = Counter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -208,8 +200,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AE2E17701D50CD8700E9F642 /* LPTopCounter.swift in Sources */,
-				AE2E176F1D50CD8700E9F642 /* LPCounter.swift in Sources */,
+				AE2E17741D50CF9100E9F642 /* LPTopCounter.swift in Sources */,
+				AE2E17731D50CF9100E9F642 /* LPCounter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,6 +318,7 @@
 		AE2E17671D50B18700E9F642 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -336,12 +329,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = CR.LPCounter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		AE2E17681D50B18700E9F642 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
