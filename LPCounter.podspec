@@ -31,7 +31,4 @@ s.framework = "Foundation"
 #
 s.source_files = "LPCounter/**/*.{swift}"
 
-#
-s.resources = "LPCounter/**/*.{png,jpeg,jpg,storyboard,xib}"
-
 end
