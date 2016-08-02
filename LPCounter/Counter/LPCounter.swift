@@ -8,15 +8,15 @@
 
 import Foundation
 
-class Counter {
+class LPCounter {
     
     //MARK: - Private Properties
     
     private var startTime: CFAbsoluteTime?
-    
+
     private var endTime: CFAbsoluteTime?
     
-    private var topCounter: TopCounter?
+    private var topCounter: LPTopCounter?
     
     //MARK: - Public Properties
     
@@ -32,7 +32,7 @@ class Counter {
     
     //MARK: - Constructors
     
-    convenience init(startImmediately now: Bool, topCounter: TopCounter) {
+    convenience init(startImmediately now: Bool, topCounter: LPTopCounter) {
         self.init(startImmediately: now)
         
         self.topCounter = topCounter
@@ -97,7 +97,7 @@ class Counter {
     // MARK: - Methods of class
     
     static func durationFunc <A> (@autoclosure f: () -> A) -> (result: A, duration: CFAbsoluteTime) {
-        let timer = Counter(startImmediately: false)
+        let timer = LPCounter(startImmediately: false)
         timer.start()
         let result = f()
         timer.stop()

@@ -8,9 +8,9 @@
 
 import Foundation
 
-class TopCounter {
+class LPTopCounter {
     
-    static let instance = TopCounter()
+    static let instance = LPTopCounter()
     
     var allElapsedTime: Double = 0.0 {
         didSet {

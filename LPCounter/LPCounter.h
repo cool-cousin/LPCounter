@@ -10,7 +10,6 @@
 
 //! Project version number for LPCounter.
 FOUNDATION_EXPORT double LPCounterVersionNumber;
-/Users/Lyubomyr/Documents/Libraries/LPCounter/LPCounter.podspec
 //! Project version string for LPCounter.
 FOUNDATION_EXPORT const unsigned char LPCounterVersionString[];
 
