@@ -29,6 +29,6 @@ s.source = { :git => "https://github.com/lyupko/LPCounter.git", :tag => "#{s.ver
 s.framework = "Foundation"
 
 #
-s.source_files = "*.{swift}"
+s.source_files = "LPCounter/**/*.{swift}"
 
 end
