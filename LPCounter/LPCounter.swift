@@ -8,7 +8,7 @@
 
 import Foundation
 
-class LPCounter {
+public class LPCounter {
     
     //MARK: - Private Properties
     
@@ -20,7 +20,7 @@ class LPCounter {
     
     //MARK: - Public Properties
     
-    var durationElapsed: CFAbsoluteTime? {
+    public var durationElapsed: CFAbsoluteTime? {
         guard let hasStartTime = self.startTime else {
             print("Duration haven't startTime")
             return nil
@@ -28,25 +28,24 @@ class LPCounter {
         return CFAbsoluteTimeGetCurrent() - hasStartTime
     }
     
-    var totalTime: CFAbsoluteTime? = 0.0
+    public var totalTime: CFAbsoluteTime? = 0.0
     
     //MARK: - Constructors
     
-    convenience init(startImmediately now: Bool, topCounter: LPTopCounter) {
+    public convenience init(startImmediately now: Bool, topCounter: LPTopCounter) {
         self.init(startImmediately: now)
         
         self.topCounter = topCounter
     }
     
-    init(startImmediately now: Bool) {
+    public init(startImmediately now: Bool) {
         if now {
             start()
         }
     }
     
     deinit {
-        self.startTime = nil
-        self.endTime = nil
+        self.stop()
     }
     
     //MARK: - Private methods
@@ -65,19 +64,19 @@ class LPCounter {
     
     //MARK: - Public methods
     
-    func start() {
+    public func start() {
         if self.startTime == nil {
             self.startTime = CFAbsoluteTimeGetCurrent()
         }
     }
     
-    func reset() {
+    public func reset() {
         self.startTime = nil
         self.endTime = nil
         self.totalTime = nil
     }
     
-    func stop() {
+    public func stop() {
         defer {
             self.startTime = nil
             self.endTime = nil
@@ -96,7 +95,7 @@ class LPCounter {
     
     // MARK: - Methods of class
     
-    static func durationFunc <A> (@autoclosure f: () -> A) -> (result: A, duration: CFAbsoluteTime) {
+    public static func durationFunc <A> (@autoclosure f: () -> A) -> (result: A, duration: CFAbsoluteTime) {
         let timer = LPCounter(startImmediately: false)
         timer.start()
         let result = f()

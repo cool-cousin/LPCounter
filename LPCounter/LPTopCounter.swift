@@ -8,11 +8,11 @@
 
 import Foundation
 
-class LPTopCounter {
+public class LPTopCounter {
     
-    static let instance = LPTopCounter()
+    public static let instance = LPTopCounter()
     
-    var allElapsedTime: Double = 0.0 {
+    public var allElapsedTime: Double = 0.0 {
         didSet {
             print("all elapsed time - ", allElapsedTime)
         }
@@ -20,7 +20,7 @@ class LPTopCounter {
     
     //MARK: Public methods
     
-    func add(time: CFAbsoluteTime) {
+    public func add(time: CFAbsoluteTime) {
         self.allElapsedTime += time
     }
 }
