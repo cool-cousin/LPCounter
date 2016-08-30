@@ -18,6 +18,9 @@ public class LPCounter {
     
     private var topCounter: LPTopCounter?
     
+    private var identifier: String?
+    
+    
     //MARK: - Public Properties
     
     public var durationElapsed: CFAbsoluteTime? {
@@ -32,10 +35,10 @@ public class LPCounter {
     
     //MARK: - Constructors
     
-    public convenience init(startImmediately now: Bool, topCounter: LPTopCounter) {
+    public convenience init(startImmediately now: Bool, topCounter: LPTopCounter, globalIdentifier: String = #function) {
         self.init(startImmediately: now)
-        
         self.topCounter = topCounter
+        self.identifier = globalIdentifier
     }
     
     public init(startImmediately now: Bool) {
@@ -45,6 +48,9 @@ public class LPCounter {
     }
     
     deinit {
+        guard self.startTime != nil && self.endTime != nil else {
+            return
+        }
         self.stop()
     }
     
@@ -58,7 +64,7 @@ public class LPCounter {
         }
         
         if let counter = topCounter {
-            counter.add(time!)
+            counter.add(time!, from: identifier!)
         }
     }
     
@@ -89,7 +95,6 @@ public class LPCounter {
         
         self.endTime = CFAbsoluteTimeGetCurrent()
         totalTime = self.endTime! - hasStartTime
-        print(NSThread.currentThread())
         addElapsedTime(self.endTime! - hasStartTime)
     }
     
