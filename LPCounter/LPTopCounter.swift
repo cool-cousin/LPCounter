@@ -8,11 +8,11 @@
 
 import Foundation
 
-public class LPTopCounter {
+open class LPTopCounter {
     
-    public static let instance = LPTopCounter()
+    open static let instance = LPTopCounter()
     
-    public var allElapsedTime: Double = 0.0 {
+    open var allElapsedTime: Double = 0.0 {
         didSet {
             if allowLogs {
                 printStateElapsedTime()
@@ -20,10 +20,10 @@ public class LPTopCounter {
         }
     }
     
-    public var allowLogs = false
-    public var identifier = ""
+    open var allowLogs = false
+    open var identifier = ""
     
-    private var callsCount = 0
+    fileprivate var callsCount = 0
     
     //MARK: - Constructors
     
@@ -32,7 +32,7 @@ public class LPTopCounter {
         identifier = globalIndetifier
         
         if printAfter != 0 {
-             NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(printAfter), target: self, selector: #selector(printStateElapsedTime), userInfo: nil, repeats: true)
+             Timer.scheduledTimer(timeInterval: TimeInterval(printAfter), target: self, selector: #selector(printStateElapsedTime), userInfo: nil, repeats: true)
         } else {
             allowLogs = true
         }
@@ -46,7 +46,7 @@ public class LPTopCounter {
     
     //MARK: -  Public methods
     
-    public func add(time: CFAbsoluteTime, from: String) {
+    open func add(_ time: CFAbsoluteTime, from: String) {
         self.allElapsedTime += time
         callsCount += 1
         
@@ -55,11 +55,11 @@ public class LPTopCounter {
         }
     }
     
-    public func printCounterCalls() {
+    open func printCounterCalls() {
         print("\(identifier) counter called - ", callsCount)
     }
     
-    @objc public func printStateElapsedTime() {
+    @objc open func printStateElapsedTime() {
         print("\(identifier): all elapsed time - ", allElapsedTime)
     }
     

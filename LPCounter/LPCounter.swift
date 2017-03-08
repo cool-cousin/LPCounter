@@ -8,22 +8,22 @@
 
 import Foundation
 
-public class LPCounter {
+open class LPCounter {
     
     //MARK: - Private Properties
     
-    private var startTime: CFAbsoluteTime?
+    fileprivate var startTime: CFAbsoluteTime?
 
-    private var endTime: CFAbsoluteTime?
+    fileprivate var endTime: CFAbsoluteTime?
     
-    private var topCounter: LPTopCounter?
+    fileprivate var topCounter: LPTopCounter?
     
-    private var identifier: String?
+    fileprivate var identifier: String?
     
     
     //MARK: - Public Properties
     
-    public var durationElapsed: CFAbsoluteTime? {
+    open var durationElapsed: CFAbsoluteTime? {
         guard let hasStartTime = self.startTime else {
             print("Duration haven't startTime")
             return nil
@@ -31,7 +31,7 @@ public class LPCounter {
         return CFAbsoluteTimeGetCurrent() - hasStartTime
     }
     
-    public var totalTime: CFAbsoluteTime? = 0.0
+    open var totalTime: CFAbsoluteTime? = 0.0
     
     //MARK: - Constructors
     
@@ -56,7 +56,7 @@ public class LPCounter {
     
     //MARK: - Private methods
     
-    private func addElapsedTime(time: CFAbsoluteTime?) {
+    fileprivate func addElapsedTime(_ time: CFAbsoluteTime?) {
         
         guard time != nil else {
             print("Duration haven't startTime")
@@ -70,19 +70,19 @@ public class LPCounter {
     
     //MARK: - Public methods
     
-    public func start() {
+    open func start() {
         if self.startTime == nil {
             self.startTime = CFAbsoluteTimeGetCurrent()
         }
     }
     
-    public func reset() {
+    open func reset() {
         self.startTime = nil
         self.endTime = nil
         self.totalTime = nil
     }
     
-    public func stop() {
+    open func stop() {
         defer {
             self.startTime = nil
             self.endTime = nil
@@ -100,7 +100,7 @@ public class LPCounter {
     
     // MARK: - Methods of class
     
-    public static func durationFunc <A> (@autoclosure f: () -> A) -> (result: A, duration: CFAbsoluteTime) {
+    open static func durationFunc <A> (_ f: @autoclosure () -> A) -> (result: A, duration: CFAbsoluteTime) {
         let timer = LPCounter(startImmediately: false)
         timer.start()
         let result = f()
